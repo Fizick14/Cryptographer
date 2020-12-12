@@ -1,0 +1,2 @@
+# Cryptographer
+Affine cipher
