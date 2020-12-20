@@ -1,8 +1,6 @@
 //Автор библиотеки - Fizick14
 //alex.pevnenko@gmail.com
 
-//Данный проект начинает линейку первых моих проектов для портфолио
-
 //Простой шифровальщик
 //который основан на 
 //аффинском шифре 
@@ -12,23 +10,16 @@
 //освобождение произваодиться методом freeMem()
 //================================================================================================
 
+//*********!!!!!!!!!!***********
+//функции библиотеки перезаписывают данные в тоже место, осторожно !!!
+////////////////////////////////
 #pragma once 
 
 class Crypto
 {
-private:
-    char* afterEncryption;
-    char* afterDecryption;
-    int lengthPhrase;
 public:
-
-    /*
-    *@brief метод для очистки памяти после рсшифровки 
-    *@param1 *arr принимает указатель на область памяти, необходимую освободить 
-    *return void 
-    */
-    void freeMem(char* arr);
-
+    //конструктор 
+    Crypto(int ,int);
         /*
         *brief метод для шифровки информации
         *param1 beforeEncryption слово или фраза , которую необходжми зашифровать
@@ -36,27 +27,17 @@ public:
         *param3 key2 ключ для шифровки второй
         *retuen void
         */
-    void encrypt(char* beforeEncryption, int key1, int key2);
-
-        /*
-        *@brief метод для вывода информации в консоль о расшифрованном сообщении
-        *@return void
-        !!нудно для дебага ////потом удалить
-        */
-    void showEncryptedInfo();
-
+    char* encrypt(char* beforeEncryption);
         /*
         *@brief метод для расшифровки сообщения
         *@param1 key1 ключ для расшифровки
         *@param2 key2 ключ для расшифровки
         *@return void
         */
-    void decrypt(int key1, int key2);
+    char* decrypt(char* beforeDecryption);
 
-        /*
-       *@brief метод для вывода информации в консоль о расшифрованном сообщении
-       *@return void
-       !!нудно для дебага ////потом удалить
-       */
-    void showDecryptedInfo();
+private:
+    int lengthPhrase;
+    int key1, key2;
+    int sizeAlphabet = 26;
 };
