@@ -1,7 +1,4 @@
-#include <iostream>////дебаг 
 #include "crypto.h"
-
-using namespace std;////дебаг 
 
 Crypto::Crypto(int k1,int k2)
 {
@@ -28,7 +25,7 @@ char* Crypto::encrypt(char* beforeEncryption)
 char* Crypto::decrypt(char* beforeDecryption)
 {
     int code, reverseKey;
-    //вычисл€ю обратное значение 1го ключа по модулю 26
+
     for (int i = 0; i < sizeAlphabet; i++)
     {
         if (key1 * i % sizeAlphabet == 1) reverseKey = i;
